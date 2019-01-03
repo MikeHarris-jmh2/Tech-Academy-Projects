@@ -8,5 +8,10 @@ namespace MoreMathExercises
 {
     class MathOperations
     {
+        public void addNumber(int a, int b)
+        {
+            int c = a + 2;
+            
+        }
     }
 }
