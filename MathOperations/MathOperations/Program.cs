@@ -26,6 +26,7 @@ namespace MathOperations
             int answer3 = number.divideNumber(userNumber);
             Console.WriteLine(answer3);
             Console.ReadLine();
+
         }
     }
 }
