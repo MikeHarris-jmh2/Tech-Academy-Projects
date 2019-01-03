@@ -6,23 +6,26 @@ using System.Threading.Tasks;
 
 namespace MathOperations
 {
-    public class MathStuff
+    public  class MathStuff
     {
-        public int userNumber { get; set; };
+        int userNumber { get; set; }
 
-        public addNumber()
+        public int addNumber(int userNumber)
         {
-            Console.WriteLine(userNumber + 2);
+            int answer = userNumber + 2;
+            return answer;
         }
 
-        public subtractNumber()
+        public int subtractNumber(int userNumber)
         {
-            Console.WriteLine(userNumber - 2);
+             int answer =userNumber - 2;
+            return answer;
         }
 
-        public divideNumber()
+        public  int divideNumber(int userNumber)
         {
-            Console.WriteLine(userNumber / 2);
+            int answer = userNumber / 2;
+            return answer;
         }
     }
 }
