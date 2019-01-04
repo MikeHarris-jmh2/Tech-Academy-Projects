@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{50C34D8A-71FB-44AD-9785-C176111A961B}</ProjectGuid>
+    <ProjectGuid>{FB94A17D-0AB5-4AE6-8CFF-EE87580B80C7}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>MathExercise3</RootNamespace>
-    <AssemblyName>MathExercise3</AssemblyName>
+    <RootNamespace>Exercise_120</RootNamespace>
+    <AssemblyName>Exercise 120</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,11 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MathOverload.cs" />
-    <Compile Include="OverloadMethod.cs" />
+    <Compile Include="Employee.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="static class.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

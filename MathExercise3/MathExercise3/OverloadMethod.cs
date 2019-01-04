@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace MathExercise3
 {
-    class OverloadMethod
+    public class OverloadMethod
     {
+        public overloadMethod(out int a, out string b, out string c)
+        {
+            a = 2;
+            b = "string one";
+            c = "string two";
+
+            
+
+
+        }
     }
 }

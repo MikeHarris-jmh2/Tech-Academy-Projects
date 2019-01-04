@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MathExercise3
+namespace Exercise_120
 {
-     static class static_class
+    class Employee
     {
-        
     }
 }
