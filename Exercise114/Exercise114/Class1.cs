@@ -26,7 +26,7 @@ namespace Exercise114
            
         }
 
-        public string AddString(string a)
+        public int AddString(string a)
         {
             Console.WriteLine("Please provide a string");
             int b = Convert.ToInt32(Console.ReadLine());
