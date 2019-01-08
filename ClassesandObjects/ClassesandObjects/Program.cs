@@ -10,41 +10,28 @@ namespace ClassesandObjects
     {
         static void Main(string[] args)
         {
-            Deck deck = new Deck();
-
-            deck = Shuffle(deck, 3);
-
-            foreach (Card card in deck.Cards)
+            Console.WriteLine("Welcome to Grand hotel and Casino. Let's start by telling me your name.");
+            string PlayerName = Console.ReadLine();
+            Console.WriteLine("How much money did you bring today?");
+            int bank = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Hello {0}. Would you like to join a game of 21 right now?", PlayerName);
+            string answer = Console.ReadLine().ToLower();
+            if(answer == "yes" || answer == "yeah" || answer == "y" || answer == "ya")
             {
-                Console.WriteLine(card.Face + " of " + card.Suit);
+                Player player = new Player(PlayerName, bank);
+                Game game = new TwentyOneGame();
+                game += player;
+                player.isActivelyPlaying = true;
+                while (player.isActivelyPlaying == true && player.Balance > 0)
+                {
+                    game.Play();
+                }
+                game -= player;
+                Console.WriteLine("Thank you for playing");
+
             }
-            Console.WriteLine(deck.Cards.Count);
+            Console.WriteLine("Feel free to look around the casino. Bye for now.");
             Console.ReadLine();
-        }
-
-        public static Deck Shuffle(Deck deck)
-        {
-            List<Card> TempList = new List<Card>();
-            Random random = new Random();
-
-            while(deck.Cards.Count > 0)
-            {
-                int randomIndex = random.Next(0, deck.Cards.Count);
-                TempList.Add(deck.Cards[randomIndex]);
-                deck.Cards.RemoveAt(randomIndex);
-            }
-            deck.Cards = TempList;
-            return deck;
-
-        }
-
-        public static Deck Shuffle(Deck deck, int times)
-        {
-            for(int i = 0; i < times; i++)
-            {
-                deck = Shuffle(deck);
-            }
-            return deck;
-        }
+        }      
     }
 }
