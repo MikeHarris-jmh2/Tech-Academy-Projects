@@ -20,8 +20,8 @@ namespace ClassesandObjects
                 {
                     Card card = new Card();
 
-                    card.Suit = suit;
-                    card.Face = face;
+                    card.Suit = Suit;
+                    card.Face = Face;
                     Cards.Add(card);
                 }
             }
