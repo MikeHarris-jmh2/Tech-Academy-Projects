@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Exercise_120
 {
-    public class Person
+    public abstract class Person
     {
         string FirstName { get; set; }
         string LastName { get; set; }
 
-        public void SayName()
+        public virtual void SayName()
         {
             Console.WriteLine("Please provide a first name");
             string FirstName = Console.ReadLine();
