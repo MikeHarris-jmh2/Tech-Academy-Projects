@@ -13,7 +13,7 @@ namespace DateTimeExercise
             DateTime date = DateTime.Now;
             Console.WriteLine("Please provide a number: ");
             int usernumber = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("The time will be " + date.AddHours(usernumber) + "in {0}", usernumber);
+            Console.WriteLine("The time will be " + date.AddHours(usernumber) + " in {0}", usernumber);
             Console.ReadLine();
         }
     }

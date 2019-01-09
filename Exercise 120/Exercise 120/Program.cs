@@ -11,7 +11,7 @@ namespace Exercise_120
         static void Main(string[] args)
         {
           
-            Person personName = new Person();
+            Employee personName = new Employee(){ FirstName ="Sample", LastName = "Student" };
             personName.SayName();
             Console.Read();
         }

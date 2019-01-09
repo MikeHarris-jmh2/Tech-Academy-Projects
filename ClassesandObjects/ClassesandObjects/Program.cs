@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace ClassesandObjects
 {
@@ -10,6 +11,7 @@ namespace ClassesandObjects
     {
         static void Main(string[] args)
         {
+
             Console.WriteLine("Welcome to Grand hotel and Casino. Let's start by telling me your name.");
             string PlayerName = Console.ReadLine();
             Console.WriteLine("How much money did you bring today?");

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Exercise_120
 {
-    class Employee
+    class Employee : Person
     {
+        public int EmployeeId { get; set; }
     }
 }
