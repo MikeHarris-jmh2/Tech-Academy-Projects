@@ -11,7 +11,7 @@ namespace ClassesandObjects
     {
         static void Main(string[] args)
         {
-
+            Guid identifier = Guid.NewGuid();
             Console.WriteLine("Welcome to Grand hotel and Casino. Let's start by telling me your name.");
             string PlayerName = Console.ReadLine();
             Console.WriteLine("How much money did you bring today?");
@@ -21,6 +21,7 @@ namespace ClassesandObjects
             if(answer == "yes" || answer == "yeah" || answer == "y" || answer == "ya")
             {
                 Player player = new Player(PlayerName, bank);
+                player.Id = Guid.NewGuid();
                 Game game = new TwentyOneGame();
                 game += player;
                 player.isActivelyPlaying = true;
