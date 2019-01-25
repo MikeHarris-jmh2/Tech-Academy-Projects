@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Exercise_120
 {
-    class Employee : Person, IQuittable
+    public class Employee<T> : Person, IQuittable
     {
         public int EmployeeId { get; set; }
+        public T things  { get; set; }
 
         public override void SayName()
         {
