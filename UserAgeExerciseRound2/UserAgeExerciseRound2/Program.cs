@@ -12,13 +12,19 @@ namespace UserAgeExerciseRound2
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
-            CreateWebHostBuilder(args).Build().Run();
-        }
+            
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+            try
+            {
+                Console.WriteLine("How old are you?");
+                int userAge = Convert.ToInt32(Console.ReadLine());
+            }
+            catch ()
+            {
+            
+            }
+        }
     }
 }
