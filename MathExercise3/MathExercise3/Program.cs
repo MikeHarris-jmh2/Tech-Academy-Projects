@@ -17,6 +17,11 @@ namespace MathExercise3
             Console.WriteLine(userNumber);
             Console.ReadLine();
 
+            OverloadMethod overload = new OverloadMethod();
+
+            overload.Individual("Mike", "Example", 21);
+
+            Console.WriteLine(overload);
         }
     }
 }

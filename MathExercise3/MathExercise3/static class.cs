@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MathExercise3
 {
-     static class static_class
+     static class Static_class
     {
         
     }
