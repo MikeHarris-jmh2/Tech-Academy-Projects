@@ -10,8 +10,7 @@ namespace ConsoleApp6
     {
         public int divideNumber(int a, int b = 0)
         {
-            int c = a / 2;
-         
+            int c = (a + b) / 2;
             return c;
         }
     }
