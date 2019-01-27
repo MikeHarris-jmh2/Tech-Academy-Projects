@@ -20,10 +20,13 @@ namespace UserAgeExerciseRound2
             {
                 Console.WriteLine("How old are you?");
                 int userAge = Convert.ToInt32(Console.ReadLine());
+                int year = Convert.ToInt32(DateTime.Now.Year);
+                int yearOfBirth = year - userAge;
+                Console.WriteLine(yearOfBirth);
             }
-            catch ()
+            catch (Exception)
             {
-            
+                Console.WriteLine("Please do not put 0 or negative numbers.");
             }
         }
     }
