@@ -11,9 +11,9 @@ namespace Exercise114
         static void Main(string[] args)
         {
              IntegerReturn example_Integer = new IntegerReturn();
-            example_Integer.AddDecimal(99.9);
-            example_Integer.AddInteger(2);
-            example_Integer.AddString("2");
+            example_Integer.MathOp(99.9m);
+            example_Integer.MathOp(2);
+            example_Integer.MathOp("2");
         }
     }
 }

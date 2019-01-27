@@ -8,7 +8,7 @@ namespace Exercise114
 {
     class IntegerReturn
     {
-        public int AddInteger(int a)
+        public int MathOp(int a)
         {
             Console.WriteLine("Please provide a number");
             int c = Convert.ToInt32(Console.ReadLine());
@@ -17,7 +17,7 @@ namespace Exercise114
             
         }
 
-        public decimal AddDecimal(decimal a)
+        public decimal MathOp(decimal a)
         {
             Console.WriteLine("Please provide a decimal number");
             int b = Convert.ToInt32(Console.ReadLine());
@@ -26,7 +26,7 @@ namespace Exercise114
            
         }
 
-        public int AddString(string a)
+        public int MathOp(string a)
         {
             Console.WriteLine("Please provide a string");
             int b = Convert.ToInt32(Console.ReadLine());
