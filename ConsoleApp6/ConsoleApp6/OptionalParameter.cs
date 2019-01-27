@@ -11,6 +11,7 @@ namespace ConsoleApp6
         public int divideNumber(int a, int b = 0)
         {
             int c = a / 2;
+         
             return c;
         }
     }
