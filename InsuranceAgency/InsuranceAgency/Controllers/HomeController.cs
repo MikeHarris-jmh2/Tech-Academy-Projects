@@ -1,4 +1,6 @@
-﻿using System;
+﻿using InsuranceAgency.Models;
+using InsuranceAgency.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -145,38 +147,32 @@ namespace InsuranceAgency.Controllers
             
         }
 
-        public ActionResult Admin(string firstName, string lastName, string emailAddress, string insuranceTotal, string clientInfo)
+        public ActionResult Admin()
         {
-       
-
-            string queryString = @"SELECT * FROM InsuranceInformation";
+            string queryString = @"SELECT Id, FirstName, LastName, EmailAddress, InsuranceTotal from InsuranceInformation";
+            List<InsuranceInformation> quoteinformation = new List<InsuranceInformation>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(queryString, connection);
-                SqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    firstName += reader["FirstName"].ToString();
-                    lastName += reader["LastName"].ToString();
-                    emailAddress += reader["EmailAddress"].ToString();
-                    insuranceTotal += reader["InsuranceTotal"].ToString();
-                }
-            
-
-           
-
 
                 connection.Open();
-                command.ExecuteNonQuery();
-                connection.Close();
-            }
 
-            ViewBag(firstName);
-            ViewBag(lastName);
-            ViewBag(emailAddress);
-            ViewBag(insuranceTotal);
-            return View("Admin");
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    var insuranceinfo = new InsuranceInformation();
+                    insuranceinfo.Id = Convert.ToInt32(reader["Id"]);
+                    insuranceinfo.FirstName = reader["FirstName"].ToString();
+                    insuranceinfo.LastName = reader["LastName"].ToString();
+                    insuranceinfo.EmailAddress = reader["EmailAddress"].ToString();
+                    insuranceinfo.InsuranceTotal = Convert.ToInt32(reader["InsuranceTotal"]);
+                    quoteinformation.Add(insuranceinfo);
+
+                }
+            }
+            return View(quoteinformation);
         }
     }
 }
