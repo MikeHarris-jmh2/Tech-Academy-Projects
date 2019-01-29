@@ -1,5 +1,5 @@
-﻿@using NewsletterAppMVC.Models
-@model List<NewsletterSignUp>
+﻿@using NewsLetterAppMVC.Models
+@model List<NewsletterSignup>
 
 <div class="row no-gutters m-3">
     <div class="card col-sm-12 col-md-10 col-lg-6 mx-auto shadow">
@@ -8,9 +8,8 @@
         </div>
         <div class="card-body">
 
-            @#line 3 "C:\Users\Student\Documents\GitHub\Tech-Academy-Projects\NewsLetterAppMVC\NewsLetterAppMVC\Views\Home\Admin.cshtml"
-                        /**/
-                        foreach (var signup in Model)
+            
+                        @foreach (var signup in Model)
                         {
                             <div class="row">
                                 <div class="col">
