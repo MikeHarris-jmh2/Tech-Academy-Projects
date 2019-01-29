@@ -10,22 +10,29 @@ namespace InsuranceAgency.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=InsuranceAgency;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"; 
+        private readonly string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=InsuranceAgency;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
+        public int insuranceTotal = 50;
+
         public ActionResult Index()
         {
             return View();
         }
 
-       [HttpPost]
-       public ActionResult InsuranceInfo(string firstName, string lastName, string emailAddress, DateTime dateOfBirth, int carYear, string carMake, string carModel, bool hasDUI, int speedingTickets, bool fullCoverage)
+        [HttpPost]
+        public ActionResult InsuranceInfo(string firstName, string lastName, string emailAddress, DateTime dateOfBirth, int carYear, string carMake, string carModel, int hasDUI, int speedingTickets, int fullCoverage)
         {
-             if(string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(emailAddress))
+            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(emailAddress))
             {
                 return View("~/Views/Shared/Error.cshtml");
             }
             else
             {
-                string queryString = @"INSERT INTO InsuranceAgency (FirstName, LastName, EmailAddress, DateofBirth) VALUES (@FirstName, @LastName, @EmailAddress, #DateofBirth)";
+                int calculate = Calculation( dateOfBirth,  carYear,  carMake, carModel, hasDUI, speedingTickets,fullCoverage, insuranceTotal);
+
+                insuranceTotal = calculate;
+
+                string queryString = @"INSERT INTO InsuranceInformation (FirstName, LastName, EmailAddress, DateofBirth, CarYear, CarMake, CarModel, hasDUI, SpeedingTickets, FullCoverageorLiability, InsuranceTotal) VALUES (@FirstName, @LastName, @EmailAddress, @DateOfBirth, @CarYear, @CarMake, @CarModel, @hasDUI, @SpeedingTickets, @FullCoverageorLiability, @insuranceTotal)";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -37,9 +44,10 @@ namespace InsuranceAgency.Controllers
                     command.Parameters.Add("@CarYear", SqlDbType.Int);
                     command.Parameters.Add("@CarMake", SqlDbType.VarChar);
                     command.Parameters.Add("@CarModel", SqlDbType.VarChar);
-                    command.Parameters.Add("@hasDUI?", SqlDbType.Bit);
+                    command.Parameters.Add("@hasDUI", SqlDbType.Bit);
                     command.Parameters.Add("@SpeedingTickets", SqlDbType.Int);
-                    command.Parameters.Add("@FullCoverageLiability", SqlDbType.Bit); 
+                    command.Parameters.Add("@FullCoverageorLiability", SqlDbType.Bit);
+                    command.Parameters.Add("@InsuranceTotal", SqlDbType.Int);
 
                     command.Parameters["@FirstName"].Value = firstName;
                     command.Parameters["@LastName"].Value = lastName;
@@ -48,18 +56,96 @@ namespace InsuranceAgency.Controllers
                     command.Parameters["@CarYear"].Value = carYear;
                     command.Parameters["@CarMake"].Value = carMake;
                     command.Parameters["@CarModel"].Value = carModel;
-                    command.Parameters["@hasDUI?"].Value = hasDUI;
+                    command.Parameters["@hasDUI"].Value = hasDUI;
                     command.Parameters["@SpeedingTickets"].Value = speedingTickets;
-                    command.Parameters["@FullCoverageLiability"].Value = fullCoverage;
+                    command.Parameters["@FullCoverageorLiability"].Value = fullCoverage;
+                    command.Parameters["@InsuranceTotal"].Value = insuranceTotal;
 
 
                     connection.Open();
                     command.ExecuteNonQuery();
                     connection.Close();
                 }
-
-                return View();
+                ViewBag.InsuranceTotal = calculate;
+                return View("Calculation");
             }
+
+        }
+
+
+        public  int Calculation(DateTime dateOfBirth, int carYear, string carMake, string carModel, int hasDUI, int speedingTickets, int fullCoverage, int insuranceTotal)
+        {
+            DateTime date = new DateTime(2001, 1, 1);
+
+            DateTime date_two = new DateTime(1994, 1, 1);
+
+            DateTime date_three = new DateTime(1919, 1, 1);
+
+            
+
+
+            if (dateOfBirth > date)
+            {
+                insuranceTotal += 100;
+            }else if (dateOfBirth >= date_two)
+            {
+                insuranceTotal += 25;
+            } else if (dateOfBirth > date_three)
+            {
+                insuranceTotal += 25;
+            } else
+            {
+                insuranceTotal += 0;
+            }
+
+            
+
+            if (carYear < 2000)
+            {
+                insuranceTotal += 25;
+            } else if(carYear > 2015)
+            {
+                insuranceTotal += 25;
+            }
+            else
+            {
+                insuranceTotal += 0;
+            }
+
+           
+            if(carMake.ToLower() == "porsche")
+            {
+                insuranceTotal += 25;
+            } else if(carMake.ToLower() == "porsche" && carModel.ToLower() == "911 carrera")
+            {
+                insuranceTotal += 50;
+            }
+
+            do
+            {
+                insuranceTotal += 10;
+                speedingTickets--;
+            } while (speedingTickets >= 1);
+            
+            if(hasDUI == 1)
+            {
+                double confirmed = insuranceTotal * .25;
+                insuranceTotal = insuranceTotal + Convert.ToInt32(confirmed);
+            }
+
+            if(fullCoverage == 1)
+            {
+                double confirmedCoverage = insuranceTotal * .50;
+                insuranceTotal = insuranceTotal + Convert.ToInt32(confirmedCoverage);
+            }
+
+            return insuranceTotal;
+
+            
         }
     }
-} 
+}
+
+
+
+
