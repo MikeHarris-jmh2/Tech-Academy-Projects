@@ -13,6 +13,7 @@ namespace InsuranceAgency.Controllers
         private readonly string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=InsuranceAgency;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         public int insuranceTotal = 50;
+        public string clientInfo = "";
 
         public ActionResult Index()
         {
@@ -142,6 +143,40 @@ namespace InsuranceAgency.Controllers
             return insuranceTotal;
 
             
+        }
+
+        public ActionResult Admin(string firstName, string lastName, string emailAddress, string insuranceTotal, string clientInfo)
+        {
+       
+
+            string queryString = @"SELECT * FROM InsuranceInformation";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    firstName += reader["FirstName"].ToString();
+                    lastName += reader["LastName"].ToString();
+                    emailAddress += reader["EmailAddress"].ToString();
+                    insuranceTotal += reader["InsuranceTotal"].ToString();
+                }
+            
+
+           
+
+
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+
+            ViewBag(firstName);
+            ViewBag(lastName);
+            ViewBag(emailAddress);
+            ViewBag(insuranceTotal);
+            return View("Admin");
         }
     }
 }
