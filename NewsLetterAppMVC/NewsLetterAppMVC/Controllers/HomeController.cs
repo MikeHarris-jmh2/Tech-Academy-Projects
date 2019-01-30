@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NewsLetterAppMVC.Models;
+using NewsLetterAppMVC.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -28,7 +30,7 @@ namespace NewsLetterAppMVC.Controllers
             {
                 
 
-                string queryString = @"INSERT INTO SignUps (FirstName, LastName, EmailAddress) VALUES
+                string queryString = @"INSERT INTO SignUpss (FirstName, LastName, EmailAddress) VALUES
                                         (@FirstName, @LastName, @EmailAddress)";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -54,9 +56,39 @@ namespace NewsLetterAppMVC.Controllers
         
         public ActionResult Admin()
         {
-            string queryString = @"SELECT Id, FirstName, LastName, EmailAddress from Signups";
-            List<NewsletterSignUp> signups = new List<NewsletterSignUp>();
-            return View();
+            string queryString = @"SELECT Id, FirstName, LastName, EmailAddress, SocialSecurityNumber from Signupss";
+            List<NewsletterSignup> signups = new List<NewsletterSignup>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                while(reader.Read()){
+                    var signup = new NewsletterSignup();
+                    signup.Id = Convert.ToInt32(reader["Id"]);
+                    signup.FirstName = reader["FirstName"].ToString();
+                    signup.LastName = reader["LastName"].ToString();
+                    signup.EmailAddress = reader["EmailAddress"].ToString();
+                    signup.SocialSecurityNumber = reader["SocialSecurityNumber"].ToString();
+                    signups.Add(signup);
+
+                }
+            }
+            List<SignUpVm> signupVMS = new List<SignUpVm>();
+            foreach (var signup in signups)
+            {
+                var signupVm = new SignUpVm();
+                signupVm..FirstName = signup.FirstName;
+                signupVm.LastName = signup.LastName;
+                signupVm.EmailAddress = signup.EmailAddress;
+                signupVMS.Add(signupVm);
+
+            }
+                return View(signupVMS);
         }
     }
 }
