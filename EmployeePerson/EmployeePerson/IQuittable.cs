@@ -7,6 +7,6 @@ namespace EmployeePerson
 {
     interface IQuittable
     {
-        void Quit(Person person);
+        void Quit(Employee employee);
     }
 }

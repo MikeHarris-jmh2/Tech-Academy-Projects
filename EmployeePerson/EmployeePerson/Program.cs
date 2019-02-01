@@ -16,13 +16,13 @@ namespace EmployeePerson
         {
             List<Person> employees = new List<Person>();
             Employee employee = new Employee();
+            
             employee.SayName();
             employees.Add(employee);
 
             foreach (var person in employees)
             {
-                employees.Add(person);
-                Console.WriteLine(person);
+                Console.WriteLine(person.FirstName);
                 Console.ReadLine();
             }
         }       

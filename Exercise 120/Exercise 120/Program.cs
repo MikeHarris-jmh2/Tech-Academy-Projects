@@ -11,9 +11,11 @@ namespace Exercise_120
         static void Main(string[] args)
         {
 
-            Employee<string> employee = new Employee<string>() { "one", "two", "three" };
+            Employee<string> Things = new Employee<string>();
 
-            Employee<int> employeeNumber = new Employee<int>() { 1, 2, 3, 4 };
+            Employee<int> ThingsInt = new Employee<int>();
+
+            Things.AddRange("1", "2", "3");
 
             Console.WriteLine(employee);
             Console.Read();
