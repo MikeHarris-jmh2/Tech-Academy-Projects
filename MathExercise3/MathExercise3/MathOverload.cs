@@ -8,7 +8,7 @@ namespace MathExercise3
 {
     public class MathOverload
     {
-        public void DividebyTwo(int a)
+        public void DividebyTwo(out int a)
         {
             a = 0;
             int x = a / 2;

@@ -13,7 +13,7 @@ namespace MathExercise3
             Console.WriteLine("Please provide a number you would like to be divided by 2");
             int userNumber = Convert.ToInt32(Console.ReadLine());
             MathOverload numberOverload = new MathOverload();
-            numberOverload.DividebyTwo(userNumber);
+            numberOverload.DividebyTwo(out userNumber);
             Console.WriteLine(userNumber);
             Console.ReadLine();
 
@@ -22,6 +22,9 @@ namespace MathExercise3
             overload.Individual("Mike", "Example", 21);
 
             Console.WriteLine(overload);
+
+            
+
         }
     }
 }
