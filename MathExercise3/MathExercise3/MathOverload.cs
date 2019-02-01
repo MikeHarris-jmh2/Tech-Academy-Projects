@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MathExercise3
 {
-    public class MathOverload
+    public static class MathOverload
     {
-        public void DividebyTwo(out int a)
+        public static void DividebyTwo(out int a)
         {
             a = 0;
             int x = a / 2;
