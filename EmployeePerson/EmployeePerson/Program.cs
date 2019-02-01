@@ -14,17 +14,12 @@ namespace EmployeePerson
     {
         public static void Main(string[] args)
         {
-            List<Person> employees = new List<Person>();
             Employee employee = new Employee();
-            
+            employee.FirstName = "Sample";
+            employee.LastName = "Student";
             employee.SayName();
-            employees.Add(employee);
 
-            foreach (var person in employees)
-            {
-                Console.WriteLine(person.FirstName);
-                Console.ReadLine();
-            }
+            
         }       
     }
 }
