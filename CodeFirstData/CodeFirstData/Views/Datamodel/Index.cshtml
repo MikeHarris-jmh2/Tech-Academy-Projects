@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<CodeFirstData.Models.Datamodel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Data Example:";
 }
 
 <h2>Index</h2>
@@ -27,11 +27,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ExampleLastName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>
     </tr>
 }
