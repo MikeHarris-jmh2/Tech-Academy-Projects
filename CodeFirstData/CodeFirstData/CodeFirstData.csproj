@@ -178,15 +178,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Datamodel\Create.cshtml" />
-    <Content Include="Views\Datamodel\Delete.cshtml" />
-    <Content Include="Views\Datamodel\Details.cshtml" />
-    <Content Include="Views\Datamodel\Edit.cshtml" />
     <Content Include="Views\Datamodel\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
