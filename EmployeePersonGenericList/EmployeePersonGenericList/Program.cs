@@ -12,8 +12,9 @@ namespace EmployeePersonGenericList
         {
             Employee<string> employees = new Employee<string>
             {
-                Things = new List<string>() { "string 1", "string 2", "string 3"}
+                Things = new List<string>()
             };
+            Things.Add()
 
             Employee<int> employeeNumbers = new Employee<int>
             {

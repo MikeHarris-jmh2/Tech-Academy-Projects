@@ -12,17 +12,33 @@ namespace MathExercise3
         {
             Console.WriteLine("Please provide a number you would like to be divided by 2");
             int userNumber = Convert.ToInt32(Console.ReadLine());
-            MathOverload.DividebyTwo(out userNumber);
-            Console.WriteLine(userNumber);
-            Console.ReadLine();
+            int a;
+            MathOverload.DividebyTwo(userNumber, out a);
+            
 
             OverloadMethod overload = new OverloadMethod();
+            Console.WriteLine("Please enter your name");
+            string fName = Console.ReadLine();
+            Console.WriteLine("Please enter your last name");
+            string lName = Console.ReadLine();
+            Console.WriteLine("Enter your age");
+            int userAge = Convert.ToInt32(Console.ReadLine());
 
-            overload.Individual("Mike", "Example", 21);
 
-            Console.WriteLine(overload);
+            //overload.Individual("Mike", "Example", 21);
+            overload.Individual(fName, lName, userAge);
 
-            
+          
+           
+
+
+
+
+
+            Console.ReadLine();
+
+
+
 
         }
     }

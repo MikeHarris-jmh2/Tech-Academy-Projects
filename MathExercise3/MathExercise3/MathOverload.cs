@@ -8,10 +8,13 @@ namespace MathExercise3
 {
     public static class MathOverload
     {
-        public static void DividebyTwo(out int a)
+        public static void DividebyTwo(int b, out int a)
         {
-            a = 0;
-            int x = a / 2;
+            a = b / 2;
+            Console.WriteLine(a);
+           
+          
+      
         }
 
 
