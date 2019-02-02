@@ -22,22 +22,7 @@ namespace EmployeePerson
             employees[1].FirstName = "Example";
             employees[1].LastName = "Member";
 
-            foreach(Employee person in employees)
-            {
-                Console.WriteLine(person.FirstName + " " + person.LastName);
-
-                if (person.EmployeeId == person.EmployeeId)
-                {
-                    Console.WriteLine("These employees are the same person");
-                } else
-                {
-                    Console.WriteLine("These employees are not the same");
-                }
-            }
-
-            Console.ReadLine();
-
-
+          
         }       
     }
 }
