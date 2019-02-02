@@ -12,19 +12,26 @@ namespace EmployeePersonGenericList
         {
             Employee<string> employees = new Employee<string>
             {
-                Things = new List<string>()
+                Things = new List<string>() 
             };
-            Things.Add()
+            employees.Things.Add("String1");
+            employees.Things.Add("String2");
+            employees.Things.Add("String3");
+            employees.Things.Add("String4");
 
             Employee<int> employeeNumbers = new Employee<int>
             {
-                Things = new List<int>() { 1, 2, 3, 4 }
+                Things = new List<int>() 
             };
+            employeeNumbers.Things.Add(1);
+            employeeNumbers.Things.Add(2);
+            employeeNumbers.Things.Add(3);
+            employeeNumbers.Things.Add(4);
 
-            Console.WriteLine(employees);
+            employees.Things.ForEach(Console.WriteLine);
             Console.ReadLine();
 
-            Console.WriteLine(employeeNumbers);
+            employeeNumbers.Things.ForEach(Console.WriteLine);
             Console.ReadLine();
 
            
