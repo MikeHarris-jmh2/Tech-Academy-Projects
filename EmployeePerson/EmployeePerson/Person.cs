@@ -11,15 +11,11 @@ namespace EmployeePerson
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-        public void SayName()
-        {
-            Console.WriteLine("Please provide a First Name:");
-            string FirstName = Console.ReadLine();
 
-            Console.WriteLine("Please provide a Last Name:");
-            string LastName = Console.ReadLine();
+        public abstract void SayName();
 
-            Console.WriteLine("Name: " + FirstName + " " + LastName);
-        }
+       
+
+       
     }
 }
