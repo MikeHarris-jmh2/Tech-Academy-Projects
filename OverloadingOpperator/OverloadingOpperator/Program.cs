@@ -24,10 +24,10 @@ namespace OverloadingOpperator
                 EmployeeId = 2
             };
 
-            Console.WriteLine(employee == employee2);
+            Console.WriteLine(employee.EmployeeId == employee2.EmployeeId);
             Console.ReadLine();
 
-            Console.WriteLine(employee != employee2);
+            Console.WriteLine(employee.EmployeeId != employee2.EmployeeId);
             Console.ReadLine();
         }
     }

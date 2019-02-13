@@ -32,14 +32,26 @@ namespace OverloadingOpperator
             }
         }
 
-        public static Employee operator ==(Employee employee, Employee employee2)
+        public static bool operator ==(Employee employee, Employee employee2)
         {
-            return employee == employee2;
+            if(employee == employee2)
+            {
+                return true;
+            }else
+            {
+                return false;
+            }
         }
 
-        public static Employee operator !=(Employee employee, Employee employee2)
+        public static bool operator !=(Employee employee, Employee employee2)
         {
-            return employee != employee2;
+            if(employee != employee2)
+            {
+                return false;
+            } else
+            {
+                return true;
+            }
         }
 
         public void Quit(Employee employee)

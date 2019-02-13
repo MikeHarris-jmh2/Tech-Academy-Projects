@@ -42,9 +42,22 @@ namespace EmployeePerson
             return employee != employee2;
         }
 
-        public void  Quit(Employee employee)
+
+        public string Quit()
         {
-            throw new NotImplementedException();
+            foreach(Employee employee in Employees)
+            {
+                if(this.EmployeeId == employee.EmployeeId)
+                {
+                    Employees.Remove(employee);
+                    Employees.ForEach(Console.WriteLine);
+                    Console.ReadLine();
+                }
+                else
+                {
+                    Console.WriteLine("No one decided to quit today");
+                }
+            }
         }
     }
 }
