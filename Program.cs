@@ -47,8 +47,41 @@ namespace TechnicalQuestion
             Console.WriteLine(ExampleString);
             Console.ReadLine();
 
-             
 
+            var Dupstring = "wwwhhhaaaaaaaattttt";
+            var noDup = "";
+            var set = new HashSet<char>();
+            
+            foreach( var letter in Dupstring)
+            {
+                if (set.Add(letter))
+                {
+                    noDup += letter;
+                }
+            }
+
+            Console.WriteLine(noDup);
+            Console.ReadLine();
+
+
+            for ( int i = 0; i < 101; i++)
+            {
+                if( i % 3 == 0)
+                {
+                    Console.WriteLine("Fizz");
+                    Console.ReadLine();
+
+                }
+                else if( i % 5 == 0)
+                {
+                    Console.WriteLine("Buzz");
+                    Console.ReadLine();
+                } else
+                {
+                    Console.WriteLine(i);
+                    Console.ReadLine();
+                }
+            }
         }
     }
 }
