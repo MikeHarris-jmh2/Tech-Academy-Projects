@@ -8,15 +8,34 @@ namespace MathExercise3
 {
     public class OverloadMethod
     {
-        public overloadMethod(out int a, out string b, out string c)
-        {
-            a = 2;
-            b = "string one";
-            c = "string two";
+        //public string FirstName { get; set; }
+        //public string LastName { get; set; }
+        //public int Age { get; set; }
 
+        //public void Individual(string f)
+        //{
+        //    FirstName = f;
+        //    Console.WriteLine(FirstName, LastName, Age);
+
+        //}
+
+        //public void Individual(string f, string l)
+        //{
+        //    FirstName = f;
+        //    LastName = l;
+        //    Console.WriteLine(FirstName, LastName, Age);
+        //}
+
+        public void Individual( string f, string l, int a)
+        {
+           string FirstName = f;
+            string LastName = l;
+            int Age = a;
+            Console.WriteLine(FirstName + " " + LastName + " " + Age);
+        }
             
 
 
-        }
+        
     }
 }

@@ -8,13 +8,17 @@ namespace ClassesandObjects
 {
     public class Player
     {
+        public Player(string name) : this(name, 100)
+        {
+
+        }
         public Player(string name, int beginningBalance)
         {
             Hand = new List<Card>();
             Balance = beginningBalance;
             Name = name;
         }
-
+        public Guid Id { get; set; }
         private List<Card> _hand = new List<Card>();
         public List<Card> Hand { get {return _hand; } set {_hand = value; } }
         public int Balance { get; set; }

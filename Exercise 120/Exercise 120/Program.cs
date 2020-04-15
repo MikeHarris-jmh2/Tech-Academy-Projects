@@ -10,9 +10,17 @@ namespace Exercise_120
     {
         static void Main(string[] args)
         {
-          
-            Employee personName = new Employee(){ FirstName ="Sample", LastName = "Student" };
-            personName.SayName();
+
+            Employee<string> Things = new Employee<string>();
+
+            Employee<int> ThingsInt = new Employee<int>();
+
+            Things.AddRange("1", "2", "3");
+
+            Console.WriteLine(employee);
+            Console.Read();
+
+            Console.WriteLine(employeeNumber);
             Console.Read();
         }
     }

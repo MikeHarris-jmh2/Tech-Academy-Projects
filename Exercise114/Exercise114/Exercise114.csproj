@@ -46,9 +46,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="return decimal.cs" />
     <Compile Include="returninteger.cs" />
-    <Compile Include="stringtointeger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

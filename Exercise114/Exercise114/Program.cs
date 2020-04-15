@@ -11,9 +11,18 @@ namespace Exercise114
         static void Main(string[] args)
         {
              IntegerReturn example_Integer = new IntegerReturn();
-            example_Integer.AddDecimal(99.9);
-            example_Integer.AddInteger(2);
-            example_Integer.AddString("2");
+            var decimalEx = example_Integer.MathOp(99.9m);
+            var intEx = example_Integer.MathOp(2);
+            var stringEx = example_Integer.MathOp("Hello");
+
+            Console.WriteLine("Here is result for your decimal: " + decimalEx);
+            Console.ReadLine();
+
+            Console.WriteLine("Here is the result for your int: " + intEx);
+            Console.ReadLine();
+
+            Console.WriteLine("Here is the result for your string: " + stringEx);
+            Console.ReadLine();
         }
     }
 }

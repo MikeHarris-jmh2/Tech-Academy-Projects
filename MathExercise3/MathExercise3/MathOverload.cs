@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace MathExercise3
 {
-    public class MathOverload
+    public static class MathOverload
     {
-        public void DividebyTwo(int a)
+        public static void DividebyTwo(int b, out int a)
         {
-            a = 0;
-            int x = a / 2;
+            a = b / 2;
+            Console.WriteLine(a);
+           
+          
+      
         }
 
 

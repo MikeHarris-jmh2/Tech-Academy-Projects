@@ -1,0 +1,39 @@
+﻿@using InsuranceAgency.Models;
+@model List<InsuranceInformation>
+
+<div class="row no-gutters" style="margin:25px;">
+    <div class="card col-sm-12 col-md-10 col-lg-6 mx-auto shadow">
+        <div class="card-header text-center">
+            <h5 class="m-0">Quotes</h5>
+        </div>
+        <div class="card-body">
+
+
+            @foreach (var insuranceinfo in Model)
+            {
+            <div class="row" style="border:solid; 2px;">
+                <div class="col">
+                    <h5>First Name:</h5>@insuranceinfo.FirstName
+                </div>
+                <br />
+                <div class="col">
+                    <h5>Last Name:</h5>@insuranceinfo.LastName
+                </div>
+
+                <br />
+
+                <div class="col">
+                    <h5>Email Address: </h5>@insuranceinfo.EmailAddress
+                </div>
+                <br />
+
+                <div class="col">
+                    <h5>Quote Total:</h5>@insuranceinfo.InsuranceTotal
+                </div>
+            </div>
+            }
+
+        </div>
+    </div>
+</div>
+</div>

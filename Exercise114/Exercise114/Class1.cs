@@ -8,29 +8,32 @@ namespace Exercise114
 {
     class IntegerReturn
     {
-        public int AddInteger(int a)
+        public int MathOp(int a)
         {
             Console.WriteLine("Please provide a number");
             int c = Convert.ToInt32(Console.ReadLine());
-            int d = c + 4;
+            int d = c + 2;
             return d;
             
         }
 
-        public decimal AddDecimal(decimal a)
+        public decimal MathOp(decimal a)
         {
             Console.WriteLine("Please provide a decimal number");
-            int b = Convert.ToInt32(Console.ReadLine());
-            int c = b - 3;
+            decimal b = Convert.ToDecimal(Console.ReadLine());
+            int d = Convert.ToInt32(b);
+            int c = d - 1;
             return c;
+            
            
         }
 
-        public int AddString(string a)
+        public int MathOp(string a)
         {
             Console.WriteLine("Please provide a string");
-            int b = Convert.ToInt32(Console.ReadLine());
-            int c = b / 5;
+            string b = Console.ReadLine();
+            int d = Convert.ToInt32(b.Length); 
+            int c = d / 2;
             return c;
 
         }
